@@ -12,11 +12,11 @@ describe('Test fullscale server implementation', () => {
     }
   `;
 
-  const logoutQuery = `
+  /* const logoutQuery = `
     mutation logout {
       logout
     }
-  `;
+  `; */
 
   const meQuery = `
     query getMyName {
