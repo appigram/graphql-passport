@@ -75,7 +75,9 @@ describe('context.login', () => {
 
   test('passport functions are copied from request', () => {
     const req = {
-      logout: () => {},
+      logout: (callback: () => void) => {
+        callback();
+      },
       isAuthenticated: () => {},
       isUnauthenticated: () => {},
     } as ContextParams['req'];

@@ -21,7 +21,6 @@ const typeDefs = gql`
   type Mutation {
     """
     Login user
-
     Failed logins throw AuthenticationError
     """
     login(name: String!, password: String!): User!

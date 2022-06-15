@@ -15,7 +15,8 @@
     "prettier/prettier": [
       "error"
     ],
-    "@typescript-eslint/indent": 0
+    "@typescript-eslint/indent": 0,
+    "no-promise-executor-return": 0
   },
   "overrides": [
     {

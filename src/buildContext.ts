@@ -45,7 +45,7 @@ export interface Context<UserObjectType extends Express.User> {
   getUser: () => UserObjectType;
   authenticate: (strategyName: string, options?: object) => Promise<AuthenticateReturn<UserObjectType>>;
   login: (user: UserObjectType, options?: object) => Promise<void>;
-  logout: () => void;
+  logout: (callback: () => void) => void;
   res?: express.Response;
   req: CommonRequest<UserObjectType>;
 }
@@ -100,7 +100,7 @@ const buildContext = <UserObjectType extends Express.User, R extends ContextPara
     ...sharedContext,
     authenticate: (name: string, options: AuthenticateOptions) => promisifiedAuthentication(req, res, name, options),
     login: (user: UserObjectType, options: AuthenticateOptions) => promisifiedLogin<UserObjectType>(req, user, options),
-    logout: () => req.logout(),
+    logout: (callback: () => void) => req.logout(callback),
     res,
   };
 };
